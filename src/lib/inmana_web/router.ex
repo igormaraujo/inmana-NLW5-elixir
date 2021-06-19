@@ -9,7 +9,8 @@ defmodule InmanaWeb.Router do
     pipe_through :api
 
     get "/", WelcomeController, :index
-    post "/restaurants", RestaurantsController, :create
+    resources "/restaurants", RestaurantsController, only: [:create]
+    resources "/supplies", SuppliesController, only: [:create, :show]
   end
 
   # Enables LiveDashboard only for development
